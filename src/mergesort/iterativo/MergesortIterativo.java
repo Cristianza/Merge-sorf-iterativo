@@ -26,12 +26,20 @@ public class MergesortIterativo {
         for (int i = 0; i < tamaño; i++) {
             v[i] = (int) (Math.random() * 10000) + 1;
         }
-        
+        double inicio;
+        double total;
+        inicio = System.nanoTime();
+        sort(v,0,tamaño-1);
+        total = System.nanoTime() - inicio;
+        for (int i = 0; i < tamaño; i++) {
+            System.out.println(v[i]);
+        }
+        System.out.println("El tiempo que tardo fue: " + total/(1000000000)+ " segundos");
     }
 // Merges two subarrays of arr[].
 // First subarray is arr[l..m]
 // Second subarray is arr[m+1..r]
-    void merge(int arr[], int l, int m, int r) {
+    static void merge(int arr[], int l, int m, int r) {
 // Find sizes of two subarrays to be merged
         int n1 = m - l + 1;
         int n2 = r - m;
@@ -83,7 +91,7 @@ public class MergesortIterativo {
 
     // Main function that sorts arr[l..r] using
     // merge()
-    void sort(int arr[], int l, int r) {
+    static void sort(int arr[], int l, int r) {
         if (l < r) {
 // Find the middle point
             int m = (l + r) / 2;
